@@ -5,8 +5,8 @@
 package main
 
 import (
-	"github.com/ltcsuite/ltcd/chaincfg"
-	"github.com/ltcsuite/ltcd/wire"
+	"github.com/litecoinfinance/ltcd/chaincfg"
+	"github.com/litecoinfinance/ltcd/wire"
 )
 
 // activeNetParams is a pointer to the parameters specific to the

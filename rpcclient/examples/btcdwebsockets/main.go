@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ltcsuite/ltcd/rpcclient"
-	"github.com/ltcsuite/ltcd/wire"
-	"github.com/ltcsuite/ltcutil"
+	"github.com/litecoinfinance/ltcd/rpcclient"
+	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltcutil"
 )
 
 func main() {

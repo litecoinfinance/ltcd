@@ -10,15 +10,15 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ltcsuite/ltcd/blockchain"
-	"github.com/ltcsuite/ltcd/btcec"
-	"github.com/ltcsuite/ltcd/chaincfg"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/rpcclient"
-	"github.com/ltcsuite/ltcd/txscript"
-	"github.com/ltcsuite/ltcd/wire"
-	"github.com/ltcsuite/ltcutil"
-	"github.com/ltcsuite/ltcutil/hdkeychain"
+	"github.com/litecoinfinance/ltcd/blockchain"
+	"github.com/litecoinfinance/ltcd/btcec"
+	"github.com/litecoinfinance/ltcd/chaincfg"
+	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltcd/rpcclient"
+	"github.com/litecoinfinance/ltcd/txscript"
+	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltcutil/hdkeychain"
 )
 
 var (

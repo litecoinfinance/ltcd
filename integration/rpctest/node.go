@@ -14,8 +14,8 @@ import (
 	"runtime"
 	"time"
 
-	rpc "github.com/ltcsuite/ltcd/rpcclient"
-	"github.com/ltcsuite/ltcutil"
+	rpc "github.com/litecoinfinance/ltcd/rpcclient"
+	"github.com/litecoinfinance/ltcutil"
 )
 
 // nodeConfig contains all the args, and data required to launch a ltcd process

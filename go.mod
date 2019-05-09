@@ -1,4 +1,4 @@
-module github.com/ltcsuite/ltcd
+module github.com/litecoinfinance/ltcd
 
 require (
 	github.com/aead/siphash v1.0.1
@@ -13,6 +13,6 @@ require (
 	github.com/jessevdk/go-flags v0.0.0-20141203071132-1679536dcc89
 	github.com/jrick/logrotate v1.0.0
 	github.com/kkdai/bstream v0.0.0-20161212061736-f391b8402d23
-	github.com/ltcsuite/ltcutil v0.0.0-20190507082654-23cdfa9fcc3d
+	github.com/litecoinfinance/ltcutil v0.0.0-20190507082654-23cdfa9fcc3d
 	golang.org/x/crypto v0.0.0-20170930174604-9419663f5a44
 )

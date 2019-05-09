@@ -13,10 +13,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ltcsuite/ltcd/blockchain"
-	"github.com/ltcsuite/ltcd/chaincfg"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/integration/rpctest"
+	"github.com/litecoinfinance/ltcd/blockchain"
+	"github.com/litecoinfinance/ltcd/chaincfg"
+	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltcd/integration/rpctest"
 )
 
 const (

@@ -12,15 +12,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ltcsuite/ltcd/blockchain"
-	"github.com/ltcsuite/ltcd/blockchain/indexers"
-	"github.com/ltcsuite/ltcd/btcjson"
-	"github.com/ltcsuite/ltcd/chaincfg"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/mining"
-	"github.com/ltcsuite/ltcd/txscript"
-	"github.com/ltcsuite/ltcd/wire"
-	"github.com/ltcsuite/ltcutil"
+	"github.com/litecoinfinance/ltcd/blockchain"
+	"github.com/litecoinfinance/ltcd/blockchain/indexers"
+	"github.com/litecoinfinance/ltcd/btcjson"
+	"github.com/litecoinfinance/ltcd/chaincfg"
+	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltcd/mining"
+	"github.com/litecoinfinance/ltcd/txscript"
+	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltcutil"
 )
 
 const (

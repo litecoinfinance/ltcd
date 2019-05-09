@@ -8,8 +8,8 @@
 package database
 
 import (
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcutil"
+	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltcutil"
 )
 
 // Cursor represents a cursor over key/value pairs and nested buckets of a

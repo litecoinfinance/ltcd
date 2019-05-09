@@ -36,7 +36,7 @@ differences between ltcd and bitcoind as far as how RPCs are serviced:
   further details on why they were separated.  This means that if you are
   talking directly to ltcd, only chain-related RPCs are available.  However both
   chain-related and wallet-related RPCs are available via
-  [btcwallet](https://github.com/btcsuite/btcwallet).
+  [btcwallet](https://github.com/litecoinfinance/btcwallet).
 * ltcd is secure by default which means that the RPC connection is TLS-enabled
   by default
 * ltcd provides access to the API through both
@@ -44,7 +44,7 @@ differences between ltcd and bitcoind as far as how RPCs are serviced:
   [Websockets](http://en.wikipedia.org/wiki/WebSocket)
 
 Websockets are the preferred transport for ltcd RPC and are used by applications
-such as [btcwallet](https://github.com/btcsuite/btcwallet) for inter-process
+such as [btcwallet](https://github.com/litecoinfinance/btcwallet) for inter-process
 communication with ltcd.  The websocket connection endpoint for ltcd is
 `wss://your_ip_or_domain:9334/ws`.
 
@@ -1095,7 +1095,7 @@ package main
 
 import (
 	"github.com/btcsuite/btcrpcclient"
-	"github.com/ltcsuite/ltcutil"
+	"github.com/litecoinfinance/ltcutil"
 	"io/ioutil"
 	"log"
 	"path/filepath"
@@ -1156,9 +1156,9 @@ package main
 
 import (
 	"github.com/btcsuite/btcrpcclient"
-	"github.com/ltcsuite/ltcutil"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/wire"
+	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltcd/wire"
 	"io/ioutil"
 	"log"
 	"path/filepath"
@@ -1248,9 +1248,9 @@ package main
 
 import (
 	"github.com/btcsuite/btcrpcclient"
-	"github.com/ltcsuite/ltcutil"
-	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/ltcsuite/ltcd/wire"
+	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltcd/wire"
 	"io/ioutil"
 	"log"
 	"path/filepath"
