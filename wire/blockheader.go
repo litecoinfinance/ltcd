@@ -58,7 +58,7 @@ func (h *BlockHeader) BlockHash() chainhash.Hash {
 	return chainhash.DoubleHashH(buf.Bytes())
 }
 
-// PowHash returns the litecoin scrypt hash of this block header. This value is
+// PowHash returns the litecoinfinance scrypt hash of this block header. This value is
 // used to check the PoW on blocks advertised on the network.
 func (h *BlockHeader) PowHash() (*chainhash.Hash, error) {
 	var powHash chainhash.Hash

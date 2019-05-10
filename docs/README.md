@@ -19,7 +19,7 @@
 5. [Developer Resources](#DeveloperResources)
     1. [Code Contribution Guidelines](#ContributionGuidelines)
     2. [JSON-RPC Reference](#JSONRPCReference)
-    3. [The ltcsuite Litecoin-related Go Packages](#GoPackages)
+    3. [The ltcsuite Litecoinfinance-related Go Packages](#GoPackages)
 
 <a name="About" />
 
@@ -266,7 +266,7 @@ information.
 
 <a name="GoPackages" />
 
-* The ltcsuite Litecoin-related Go Packages:
+* The ltcsuite Litecoinfinance-related Go Packages:
     * [btcrpcclient](https://github.com/litecoinfinance/ltcd/tree/master/rpcclient) - Implements a
       robust and easy to use Websocket-enabled Bitcoin JSON-RPC client
     * [btcjson](https://github.com/litecoinfinance/ltcd/tree/master/btcjson) - Provides an extensive API

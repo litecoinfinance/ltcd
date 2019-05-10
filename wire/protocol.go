@@ -146,7 +146,7 @@ type BitcoinNet uint32
 // this package does not provide that functionality since it's generally a
 // better idea to simply disconnect clients that are misbehaving over TCP.
 const (
-	// MainNet represents the main litecoin network.
+	// MainNet represents the main litecoinfinance network.
 	MainNet BitcoinNet = 0xdbb6c0fb
 
 	// TestNet represents the regression test network.
