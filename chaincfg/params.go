@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 // These variables are the chain proof-of-work limit parameters for each default
@@ -300,7 +300,7 @@ var MainNetParams = Params{
 
 	// Human-readable part for Bech32 encoded segwit addresses, as defined in
 	// BIP 173.
-	Bech32HRPSegwit: "ltfn", // always ltc for main net
+	Bech32HRPSegwit: "ltfn", // always ltfn for main net
 
 	// Address encoding magics
 	PubKeyHashAddrID:        0x1C, // starts with C
@@ -460,7 +460,7 @@ var TestNet4Params = Params{
 
 	// Human-readable part for Bech32 encoded segwit addresses, as defined in
 	// BIP 173.
-	Bech32HRPSegwit: "tltc", // always tltc for test net
+	Bech32HRPSegwit: "tltfn", // always tltfn for test net
 
 	// Address encoding magics
 	PubKeyHashAddrID:        0x6f, // starts with m or n
@@ -540,7 +540,7 @@ var SimNetParams = Params{
 
 	// Human-readable part for Bech32 encoded segwit addresses, as defined in
 	// BIP 173.
-	Bech32HRPSegwit: "sltc", // always lsb for sim net
+	Bech32HRPSegwit: "sltfn", // always lsb for sim net
 
 	// Address encoding magics
 	PubKeyHashAddrID:        0x3f, // starts with S

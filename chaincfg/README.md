@@ -1,17 +1,17 @@
 chaincfg
 ========
 
-[![Build Status](http://img.shields.io/travis/litecoinfinance/ltcd.svg)]
-(https://travis-ci.org/litecoinfinance/ltcd) [![ISC License]
+[![Build Status](http://img.shields.io/travis/litecoinfinance/ltfnd.svg)]
+(https://travis-ci.org/litecoinfinance/ltfnd) [![ISC License]
 (http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)]
-(http://godoc.org/github.com/litecoinfinance/ltcd/chaincfg)
+(http://godoc.org/github.com/litecoinfinance/ltfnd/chaincfg)
 
 Package chaincfg defines chain configuration parameters for the three standard
 Bitcoin networks and provides the ability for callers to define their own custom
 Bitcoin networks.
 
-Although this package was primarily written for ltcd, it has intentionally been
+Although this package was primarily written for ltfnd, it has intentionally been
 designed so it can be used as a standalone package for any projects needing to
 use parameters for the standard Bitcoin networks or for projects needing to
 define their own network.
@@ -26,8 +26,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/litecoinfinance/ltcutil"
-	"github.com/litecoinfinance/ltcd/chaincfg"
+	"github.com/litecoinfinance/ltfnutil"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
 )
 
 var testnet = flag.Bool("testnet", false, "operate on the testnet Bitcoin network")
@@ -47,7 +47,7 @@ func main() {
 
 	// Create and print new payment address, specific to the active network.
 	pubKeyHash := make([]byte, 20)
-	addr, err := ltcutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
+	addr, err := ltfnutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -58,7 +58,7 @@ func main() {
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/litecoinfinance/ltcd/chaincfg
+$ go get -u github.com/litecoinfinance/ltfnd/chaincfg
 ```
 
 ## GPG Verification Key

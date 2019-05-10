@@ -11,7 +11,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/btcjson"
+	"github.com/litecoinfinance/ltfnd/btcjson"
 )
 
 // TestWalletSvrWsNtfns tests all of the chain server websocket-specific
@@ -44,14 +44,14 @@ func TestWalletSvrWsNtfns(t *testing.T) {
 			},
 		},
 		{
-			name: "ltcdconnected",
+			name: "ltfndconnected",
 			newNtfn: func() (interface{}, error) {
-				return btcjson.NewCmd("ltcdconnected", true)
+				return btcjson.NewCmd("ltfndconnected", true)
 			},
 			staticNtfn: func() interface{} {
 				return btcjson.NewBtcdConnectedNtfn(true)
 			},
-			marshalled: `{"jsonrpc":"1.0","method":"ltcdconnected","params":[true],"id":null}`,
+			marshalled: `{"jsonrpc":"1.0","method":"ltfndconnected","params":[true],"id":null}`,
 			unmarshalled: &btcjson.BtcdConnectedNtfn{
 				Connected: true,
 			},

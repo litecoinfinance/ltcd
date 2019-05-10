@@ -7,13 +7,13 @@ package main
 import (
 	"sync/atomic"
 
-	"github.com/litecoinfinance/ltcd/blockchain"
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/mempool"
-	"github.com/litecoinfinance/ltcd/netsync"
-	"github.com/litecoinfinance/ltcd/peer"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/blockchain"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/mempool"
+	"github.com/litecoinfinance/ltfnd/netsync"
+	"github.com/litecoinfinance/ltfnd/peer"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 // rpcPeer provides a peer for use with the RPC server and implements the
@@ -247,7 +247,7 @@ func (b *rpcSyncMgr) IsCurrent() bool {
 //
 // This function is safe for concurrent access and is part of the
 // rpcserverSyncManager interface implementation.
-func (b *rpcSyncMgr) SubmitBlock(block *ltcutil.Block, flags blockchain.BehaviorFlags) (bool, error) {
+func (b *rpcSyncMgr) SubmitBlock(block *ltfnutil.Block, flags blockchain.BehaviorFlags) (bool, error) {
 	return b.syncMgr.ProcessBlock(block, flags)
 }
 

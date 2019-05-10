@@ -11,7 +11,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/btcjson"
+	"github.com/litecoinfinance/ltfnd/btcjson"
 )
 
 // TestWalletSvrWsCmds tests all of the wallet server websocket-specific

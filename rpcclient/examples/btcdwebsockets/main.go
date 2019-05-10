@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/rpcclient"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/rpcclient"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 func main() {
@@ -21,7 +21,7 @@ func main() {
 	// for notifications.  See the documentation of the rpcclient
 	// NotificationHandlers type for more details about each handler.
 	ntfnHandlers := rpcclient.NotificationHandlers{
-		OnFilteredBlockConnected: func(height int32, header *wire.BlockHeader, txns []*ltcutil.Tx) {
+		OnFilteredBlockConnected: func(height int32, header *wire.BlockHeader, txns []*ltfnutil.Tx) {
 			log.Printf("Block connected: %v (%d) %v",
 				header.BlockHash(), height, header.Timestamp)
 		},
@@ -31,9 +31,9 @@ func main() {
 		},
 	}
 
-	// Connect to local ltcd RPC server using websockets.
-	ltcdHomeDir := ltcutil.AppDataDir("ltcd", false)
-	certs, err := ioutil.ReadFile(filepath.Join(ltcdHomeDir, "rpc.cert"))
+	// Connect to local ltfnd RPC server using websockets.
+	ltfndHomeDir := ltfnutil.AppDataDir("ltfnd", false)
+	certs, err := ioutil.ReadFile(filepath.Join(ltfndHomeDir, "rpc.cert"))
 	if err != nil {
 		log.Fatal(err)
 	}

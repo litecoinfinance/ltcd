@@ -44,16 +44,16 @@ func btcdExecutablePath() (string, error) {
 	}
 
 	// Build btcd and output an executable in a static temp path.
-	outputPath := filepath.Join(testDir, "ltcd")
+	outputPath := filepath.Join(testDir, "ltfnd")
 	if runtime.GOOS == "windows" {
 		outputPath += ".exe"
 	}
 	cmd := exec.Command(
-		"go", "build", "-o", outputPath, "github.com/litecoinfinance/ltcd",
+		"go", "build", "-o", outputPath, "github.com/litecoinfinance/ltfnd",
 	)
 	err = cmd.Run()
 	if err != nil {
-		return "", fmt.Errorf("Failed to build ltcd: %v", err)
+		return "", fmt.Errorf("Failed to build ltfnd: %v", err)
 	}
 
 	// Save executable path so future calls do not recompile.

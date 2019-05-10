@@ -7,7 +7,7 @@ package wire
 import (
 	"io"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
 )
 
 // MsgGetCFCheckpt is a request for filter headers at evenly spaced intervals

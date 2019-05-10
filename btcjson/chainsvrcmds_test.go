@@ -11,8 +11,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/btcjson"
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/btcjson"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 // TestChainSvrCmds tests all of the chain server commands marshal and unmarshal

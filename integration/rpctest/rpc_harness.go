@@ -15,11 +15,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/chaincfg"
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/rpcclient"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/rpcclient"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 const (
@@ -64,10 +64,10 @@ var (
 // Harness to exercise functionality.
 type HarnessTestCase func(r *Harness, t *testing.T)
 
-// Harness fully encapsulates an active ltcd process to provide a unified
-// platform for creating rpc driven integration tests involving ltcd. The
-// active ltcd node will typically be run in simnet mode in order to allow for
-// easy generation of test blockchains.  The active ltcd process is fully
+// Harness fully encapsulates an active ltfnd process to provide a unified
+// platform for creating rpc driven integration tests involving ltfnd. The
+// active ltfnd node will typically be run in simnet mode in order to allow for
+// easy generation of test blockchains.  The active ltfnd process is fully
 // managed by Harness, which handles the necessary initialization, and teardown
 // of the process along with any temporary directories created as a result.
 // Multiple Harness instances may be run concurrently, in order to allow for
@@ -171,7 +171,7 @@ func New(activeNet *chaincfg.Params, handlers *rpcclient.NotificationHandlers,
 	// callback.
 	if handlers.OnFilteredBlockConnected != nil {
 		obc := handlers.OnFilteredBlockConnected
-		handlers.OnFilteredBlockConnected = func(height int32, header *wire.BlockHeader, filteredTxns []*ltcutil.Tx) {
+		handlers.OnFilteredBlockConnected = func(height int32, header *wire.BlockHeader, filteredTxns []*ltfnutil.Tx) {
 			wallet.IngestBlock(height, header, filteredTxns)
 			obc(height, header, filteredTxns)
 		}
@@ -214,7 +214,7 @@ func New(activeNet *chaincfg.Params, handlers *rpcclient.NotificationHandlers,
 // NOTE: This method and TearDown should always be called from the same
 // goroutine as they are not concurrent safe.
 func (h *Harness) SetUp(createTestChain bool, numMatureOutputs uint32) error {
-	// Start the ltcd node itself. This spawns a new process which will be
+	// Start the ltfnd node itself. This spawns a new process which will be
 	// managed
 	if err := h.node.start(); err != nil {
 		return err
@@ -227,12 +227,12 @@ func (h *Harness) SetUp(createTestChain bool, numMatureOutputs uint32) error {
 
 	// Filter transactions that pay to the coinbase associated with the
 	// wallet.
-	filterAddrs := []ltcutil.Address{h.wallet.coinbaseAddr}
+	filterAddrs := []ltfnutil.Address{h.wallet.coinbaseAddr}
 	if err := h.Node.LoadTxFilter(true, filterAddrs, nil); err != nil {
 		return err
 	}
 
-	// Ensure ltcd properly dispatches our registered call-back for each new
+	// Ensure ltfnd properly dispatches our registered call-back for each new
 	// block. Otherwise, the memWallet won't function properly.
 	if err := h.Node.NotifyBlocks(); err != nil {
 		return err
@@ -301,7 +301,7 @@ func (h *Harness) TearDown() error {
 	return h.tearDown()
 }
 
-// connectRPCClient attempts to establish an RPC connection to the created ltcd
+// connectRPCClient attempts to establish an RPC connection to the created ltfnd
 // process belonging to this Harness instance. If the initial connection
 // attempt fails, this function will retry h.maxConnRetries times, backing off
 // the time between subsequent attempts. If after h.maxConnRetries attempts,
@@ -333,7 +333,7 @@ func (h *Harness) connectRPCClient() error {
 // wallet.
 //
 // This function is safe for concurrent access.
-func (h *Harness) NewAddress() (ltcutil.Address, error) {
+func (h *Harness) NewAddress() (ltfnutil.Address, error) {
 	return h.wallet.NewAddress()
 }
 
@@ -341,7 +341,7 @@ func (h *Harness) NewAddress() (ltcutil.Address, error) {
 // wallet.
 //
 // This function is safe for concurrent access.
-func (h *Harness) ConfirmedBalance() ltcutil.Amount {
+func (h *Harness) ConfirmedBalance() ltfnutil.Amount {
 	return h.wallet.ConfirmedBalance()
 }
 
@@ -351,7 +351,7 @@ func (h *Harness) ConfirmedBalance() ltcutil.Amount {
 //
 // This function is safe for concurrent access.
 func (h *Harness) SendOutputs(targetOutputs []*wire.TxOut,
-	feeRate ltcutil.Amount) (*chainhash.Hash, error) {
+	feeRate ltfnutil.Amount) (*chainhash.Hash, error) {
 
 	return h.wallet.SendOutputs(targetOutputs, feeRate)
 }
@@ -362,7 +362,7 @@ func (h *Harness) SendOutputs(targetOutputs []*wire.TxOut,
 //
 // This function is safe for concurrent access.
 func (h *Harness) SendOutputsWithoutChange(targetOutputs []*wire.TxOut,
-	feeRate ltcutil.Amount) (*chainhash.Hash, error) {
+	feeRate ltfnutil.Amount) (*chainhash.Hash, error) {
 
 	return h.wallet.SendOutputsWithoutChange(targetOutputs, feeRate)
 }
@@ -379,7 +379,7 @@ func (h *Harness) SendOutputsWithoutChange(targetOutputs []*wire.TxOut,
 //
 // This function is safe for concurrent access.
 func (h *Harness) CreateTransaction(targetOutputs []*wire.TxOut,
-	feeRate ltcutil.Amount, change bool) (*wire.MsgTx, error) {
+	feeRate ltfnutil.Amount, change bool) (*wire.MsgTx, error) {
 
 	return h.wallet.CreateTransaction(targetOutputs, feeRate, change)
 }
@@ -416,8 +416,8 @@ func (h *Harness) P2PAddress() string {
 // blockTime parameter if one doesn't wish to set a custom time.
 //
 // This function is safe for concurrent access.
-func (h *Harness) GenerateAndSubmitBlock(txns []*ltcutil.Tx, blockVersion int32,
-	blockTime time.Time) (*ltcutil.Block, error) {
+func (h *Harness) GenerateAndSubmitBlock(txns []*ltfnutil.Tx, blockVersion int32,
+	blockTime time.Time) (*ltfnutil.Block, error) {
 	return h.GenerateAndSubmitBlockWithCustomCoinbaseOutputs(txns,
 		blockVersion, blockTime, []wire.TxOut{})
 }
@@ -437,8 +437,8 @@ func (h *Harness) GenerateAndSubmitBlock(txns []*ltcutil.Tx, blockVersion int32,
 //
 // This function is safe for concurrent access.
 func (h *Harness) GenerateAndSubmitBlockWithCustomCoinbaseOutputs(
-	txns []*ltcutil.Tx, blockVersion int32, blockTime time.Time,
-	mineTo []wire.TxOut) (*ltcutil.Block, error) {
+	txns []*ltfnutil.Tx, blockVersion int32, blockTime time.Time,
+	mineTo []wire.TxOut) (*ltfnutil.Block, error) {
 
 	h.Lock()
 	defer h.Unlock()
@@ -455,7 +455,7 @@ func (h *Harness) GenerateAndSubmitBlockWithCustomCoinbaseOutputs(
 	if err != nil {
 		return nil, err
 	}
-	prevBlock := ltcutil.NewBlock(mBlock)
+	prevBlock := ltfnutil.NewBlock(mBlock)
 	prevBlock.SetHeight(prevBlockHeight)
 
 	// Create a new block including the specified transactions
@@ -494,7 +494,7 @@ func generateListeningAddresses() (string, string) {
 
 // baseDir is the directory path of the temp directory for all rpctest files.
 func baseDir() (string, error) {
-	dirPath := filepath.Join(os.TempDir(), "ltcd", "rpctest")
+	dirPath := filepath.Join(os.TempDir(), "ltfnd", "rpctest")
 	err := os.MkdirAll(dirPath, 0755)
 	return dirPath, err
 }

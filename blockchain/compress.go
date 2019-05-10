@@ -5,8 +5,8 @@
 package blockchain
 
 import (
-	"github.com/litecoinfinance/ltcd/btcec"
-	"github.com/litecoinfinance/ltcd/txscript"
+	"github.com/litecoinfinance/ltfnd/btcec"
+	"github.com/litecoinfinance/ltfnd/txscript"
 )
 
 // -----------------------------------------------------------------------------

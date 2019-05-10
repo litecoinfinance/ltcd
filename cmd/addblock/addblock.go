@@ -9,15 +9,15 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/litecoinfinance/ltcd/blockchain"
-	"github.com/litecoinfinance/ltcd/blockchain/indexers"
-	"github.com/litecoinfinance/ltcd/database"
-	"github.com/litecoinfinance/ltcd/limits"
+	"github.com/litecoinfinance/ltfnd/blockchain"
+	"github.com/litecoinfinance/ltfnd/blockchain/indexers"
+	"github.com/litecoinfinance/ltfnd/database"
+	"github.com/litecoinfinance/ltfnd/limits"
 	"github.com/btcsuite/btclog"
 )
 
 const (
-	// blockDbNamePrefix is the prefix for the ltcd block database.
+	// blockDbNamePrefix is the prefix for the ltfnd block database.
 	blockDbNamePrefix = "blocks"
 )
 

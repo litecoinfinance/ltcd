@@ -7,7 +7,7 @@ package main
 import (
 	"log"
 
-	"github.com/litecoinfinance/ltcd/rpcclient"
+	"github.com/litecoinfinance/ltfnd/rpcclient"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-ltcd allows you to bind the RPC server to specific interfaces which enables you
+ltfnd allows you to bind the RPC server to specific interfaces which enables you
 to setup configurations with varying levels of complexity.  The `rpclisten`
 parameter can be specified on the command line as shown below with the -- prefix
 or in the configuration file without the -- prefix (as can all long command line
@@ -38,7 +38,7 @@ Command Line Examples:
 |--rpclisten=127.0.0.1:9337 --listen=[::1]:39329|IPv4 localhost on port 9337 and IPv6 localhost on port 39329|
 |--rpclisten=:39329 --listen=:9337|all interfaces on ports 39329 and 9337|
 
-The following config file would configure the ltcd RPC server to listen to all interfaces on the default port, including external interfaces, for both IPv4 and IPv6:
+The following config file would configure the ltfnd RPC server to listen to all interfaces on the default port, including external interfaces, for both IPv4 and IPv6:
 
 ```text
 [Application Options]

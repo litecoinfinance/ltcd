@@ -1,16 +1,16 @@
-ltcd
+ltfnd
 ====
 
-[![Build Status](https://travis-ci.org/litecoinfinance/ltcd.png?branch=master)](https://travis-ci.org/litecoinfinance/ltcd)
+[![Build Status](https://travis-ci.org/litecoinfinance/ltfnd.png?branch=master)](https://travis-ci.org/litecoinfinance/ltfnd)
 
-ltcd is an alternative full node bitcoin implementation written in Go (golang).
+ltfnd is an alternative full node bitcoin implementation written in Go (golang).
 
 This project is currently under active development and is in a Beta state.  It
 is extremely stable and has been in production use since October 2013.
 
 It properly downloads, validates, and serves the block chain using the exact
 rules (including consensus bugs) for block acceptance as Bitcoin Core.  We have
-taken great care to avoid ltcd causing a fork to the block chain.  It includes a
+taken great care to avoid ltfnd causing a fork to the block chain.  It includes a
 full block validation testing framework which contains all of the 'official'
 block acceptance tests (and some additional ones) that is run on every pull
 request to help ensure it properly follows consensus.  Also, it passes all of
@@ -22,11 +22,11 @@ ensures all individual transactions admitted to the pool follow the rules
 required by the block chain and also includes more strict checks which filter
 transactions based on miner requirements ("standard" transactions).
 
-One key difference between ltcd and Bitcoin Core is that ltcd does *NOT* include
+One key difference between ltfnd and Bitcoin Core is that ltfnd does *NOT* include
 wallet functionality and this was a very intentional design decision.  See the
-blog entry [here](https://blog.conformal.com/ltcd-not-your-moms-bitcoin-daemon)
+blog entry [here](https://blog.conformal.com/ltfnd-not-your-moms-bitcoin-daemon)
 for more details.  This means you can't actually make or receive payments
-directly with ltcd.  That functionality is provided by the
+directly with ltfnd.  That functionality is provided by the
 [btcwallet](https://github.com/litecoinfinance/btcwallet) and
 [Paymetheus](https://github.com/btcsuite/Paymetheus) (Windows-only) projects
 which are both under active development.
@@ -39,7 +39,7 @@ which are both under active development.
 
 #### Windows - MSI Available
 
-https://github.com/litecoinfinance/ltcd/releases
+https://github.com/litecoinfinance/ltfnd/releases
 
 #### Linux/BSD/MacOSX/POSIX - Build from Source
 
@@ -58,14 +58,14 @@ recommended that `GOPATH` is set to a directory in your home directory such as
 `~/goprojects` to avoid write permission issues.  It is also recommended to add
 `$GOPATH/bin` to your `PATH` at this point.
 
-- Run the following commands to obtain ltcd, all dependencies, and install it:
+- Run the following commands to obtain ltfnd, all dependencies, and install it:
 
 ```bash
-$ cd $GOPATH/src/github.com/litecoinfinance/ltcd
+$ cd $GOPATH/src/github.com/litecoinfinance/ltfnd
 $ GO111MODULE=on go install -v . ./cmd/...
 ```
 
-- ltcd (and utilities) will now be installed in ```$GOPATH/bin```.  If you did
+- ltfnd (and utilities) will now be installed in ```$GOPATH/bin```.  If you did
   not already add the bin directory to your system path during Go installation,
   we recommend you do so now.
 
@@ -77,53 +77,53 @@ Install a newer MSI
 
 #### Linux/BSD/MacOSX/POSIX - Build from Source
 
-- Run the following commands to update ltcd, all dependencies, and install it:
+- Run the following commands to update ltfnd, all dependencies, and install it:
 
 ```bash
-$ cd $GOPATH/src/github.com/litecoinfinance/ltcd
+$ cd $GOPATH/src/github.com/litecoinfinance/ltfnd
 $ git pull
 $ GO111MODULE=on go install -v . ./cmd/...
 ```
 
 ## Getting Started
 
-ltcd has several configuration options available to tweak how it runs, but all
+ltfnd has several configuration options available to tweak how it runs, but all
 of the basic operations described in the intro section work with zero
 configuration.
 
 #### Windows (Installed from MSI)
 
-Launch ltcd from your Start menu.
+Launch ltfnd from your Start menu.
 
 #### Linux/BSD/POSIX/Source
 
 ```bash
-$ ./ltcd
+$ ./ltfnd
 ```
 
 ## IRC
 
 - irc.freenode.net
-- channel #ltcd
-- [webchat](https://webchat.freenode.net/?channels=ltcd)
+- channel #ltfnd
+- [webchat](https://webchat.freenode.net/?channels=ltfnd)
 
 ## Issue Tracker
 
-The [integrated github issue tracker](https://github.com/litecoinfinance/ltcd/issues)
+The [integrated github issue tracker](https://github.com/litecoinfinance/ltfnd/issues)
 is used for this project.
 
 ## Documentation
 
-The documentation is a work-in-progress.  It is located in the [docs](https://github.com/litecoinfinance/ltcd/tree/master/docs) folder.
+The documentation is a work-in-progress.  It is located in the [docs](https://github.com/litecoinfinance/ltfnd/tree/master/docs) folder.
 
 ## GPG Verification Key
 
 All official release tags are signed by Conformal so users can ensure the code
-has not been tampered with and is coming from the ltcsuite developers.  To
+has not been tampered with and is coming from the ltfnsuite developers.  To
 verify the signature perform the following:
 
 - Download the Conformal public key:
-  https://raw.githubusercontent.com/litecoinfinance/ltcd/master/release/GIT-GPG-KEY-conformal.txt
+  https://raw.githubusercontent.com/litecoinfinance/ltfnd/master/release/GIT-GPG-KEY-conformal.txt
 
 - Import the public key into your GPG keyring:
   ```bash
@@ -138,4 +138,4 @@ verify the signature perform the following:
 
 ## License
 
-ltcd is licensed under the [copyfree](http://copyfree.org) ISC License.
+ltfnd is licensed under the [copyfree](http://copyfree.org) ISC License.

@@ -1,7 +1,7 @@
 indexers
 ========
 
-[![Build Status](https://travis-ci.org/litecoinfinance/ltcd.png?branch=master)](https://travis-ci.org/litecoinfinance/ltcd)
+[![Build Status](https://travis-ci.org/litecoinfinance/ltfnd.png?branch=master)](https://travis-ci.org/litecoinfinance/ltfnd)
 
 Package indexers implements optional block chain indexes.
 
@@ -21,7 +21,7 @@ via an RPC interface.
 ## Installation
 
 ```bash
-$ go get -u github.com/litecoinfinance/ltcd/blockchain/indexers
+$ go get -u github.com/litecoinfinance/ltfnd/blockchain/indexers
 ```
 
 ## License

@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/wire"
 	"github.com/davecgh/go-spew/spew"
 )
 

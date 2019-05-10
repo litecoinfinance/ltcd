@@ -9,10 +9,10 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/mining"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/mining"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 // newTestFeeEstimator creates a feeEstimator with some different parameters
@@ -46,11 +46,11 @@ type estimateFeeTester struct {
 	last    *lastBlock
 }
 
-func (eft *estimateFeeTester) testTx(fee ltcutil.Amount) *TxDesc {
+func (eft *estimateFeeTester) testTx(fee ltfnutil.Amount) *TxDesc {
 	eft.version++
 	return &TxDesc{
 		TxDesc: mining.TxDesc{
-			Tx: ltcutil.NewTx(&wire.MsgTx{
+			Tx: ltfnutil.NewTx(&wire.MsgTx{
 				Version: eft.version,
 			}),
 			Height: eft.height,
@@ -70,7 +70,7 @@ func expectedFeePerKilobyte(t *TxDesc) BtcPerKilobyte {
 func (eft *estimateFeeTester) newBlock(txs []*wire.MsgTx) {
 	eft.height++
 
-	block := ltcutil.NewBlock(&wire.MsgBlock{
+	block := ltfnutil.NewBlock(&wire.MsgBlock{
 		Transactions: txs,
 	})
 	block.SetHeight(eft.height)
@@ -283,7 +283,7 @@ func (eft *estimateFeeTester) round(txHistory [][]*TxDesc,
 	// generate new txs.
 	var newTxs []*TxDesc
 	for i := uint32(0); i < txPerRound; i++ {
-		newTx := eft.testTx(ltcutil.Amount(rand.Intn(1000000)))
+		newTx := eft.testTx(ltfnutil.Amount(rand.Intn(1000000)))
 		eft.ef.ObserveTransaction(newTx)
 		newTxs = append(newTxs, newTx)
 	}

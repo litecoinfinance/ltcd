@@ -10,13 +10,13 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/litecoinfinance/ltcd/database"
+	"github.com/litecoinfinance/ltfnd/database"
 	"github.com/btcsuite/btclog"
 	flags "github.com/jessevdk/go-flags"
 )
 
 const (
-	// blockDbNamePrefix is the prefix for the ltcd block database.
+	// blockDbNamePrefix is the prefix for the ltfnd block database.
 	blockDbNamePrefix = "blocks"
 )
 

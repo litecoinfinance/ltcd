@@ -7,8 +7,8 @@ package txscript
 import (
 	"sync"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 // TxSigHashes houses the partial set of sighashes introduced within BIP0143.

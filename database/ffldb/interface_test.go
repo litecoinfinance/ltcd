@@ -25,11 +25,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/chaincfg"
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/database"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/database"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 var (
@@ -46,7 +46,7 @@ var (
 
 // loadBlocks loads the blocks contained in the testdata directory and returns
 // a slice of them.
-func loadBlocks(t *testing.T, dataFile string, network wire.BitcoinNet) ([]*ltcutil.Block, error) {
+func loadBlocks(t *testing.T, dataFile string, network wire.BitcoinNet) ([]*ltfnutil.Block, error) {
 	// Open the file that contains the blocks for reading.
 	fi, err := os.Open(dataFile)
 	if err != nil {
@@ -62,8 +62,8 @@ func loadBlocks(t *testing.T, dataFile string, network wire.BitcoinNet) ([]*ltcu
 	dr := bzip2.NewReader(fi)
 
 	// Set the first block as the genesis block.
-	blocks := make([]*ltcutil.Block, 0, 256)
-	genesis := ltcutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
+	blocks := make([]*ltfnutil.Block, 0, 256)
+	genesis := ltfnutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
 	blocks = append(blocks, genesis)
 
 	// Load the remaining blocks.
@@ -102,7 +102,7 @@ func loadBlocks(t *testing.T, dataFile string, network wire.BitcoinNet) ([]*ltcu
 		}
 
 		// Deserialize and store the block.
-		block, err := ltcutil.NewBlockFromBytes(blockBytes)
+		block, err := ltfnutil.NewBlockFromBytes(blockBytes)
 		if err != nil {
 			t.Errorf("Failed to parse block %v: %v", height, err)
 			return nil, err
@@ -139,7 +139,7 @@ type testContext struct {
 	db          database.DB
 	bucketDepth int
 	isWritable  bool
-	blocks      []*ltcutil.Block
+	blocks      []*ltfnutil.Block
 }
 
 // keyPair houses a key/value pair.  It is used over maps so ordering can be

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"hash/crc32"
 
-	"github.com/litecoinfinance/ltcd/database"
+	"github.com/litecoinfinance/ltfnd/database"
 )
 
 // The serialized write cursor location format is:

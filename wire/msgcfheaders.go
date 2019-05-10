@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
 )
 
 const (

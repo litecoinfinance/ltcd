@@ -8,24 +8,24 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/litecoinfinance/ltcd/btcec"
-	"github.com/litecoinfinance/ltcd/chaincfg"
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/txscript"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/btcec"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/txscript"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 // This example demonstrates creating a script which pays to a bitcoin address.
 // It also prints the created script hex and uses the DisasmString function to
 // display the disassembled script.
 func ExamplePayToAddrScript() {
-	// Parse the address to send the coins to into a ltcutil.Address
+	// Parse the address to send the coins to into a ltfnutil.Address
 	// which is useful to ensure the accuracy of the address and determine
 	// the address type.  It is also required for the upcoming call to
 	// PayToAddrScript.
 	addressStr := "Leqay1p3dWuprsnwUjM2SBbrH9BiphaDUL"
-	address, err := ltcutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
+	address, err := ltfnutil.DecodeAddress(addressStr, &chaincfg.MainNetParams)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -89,8 +89,8 @@ func ExampleSignTxOutput() {
 		return
 	}
 	privKey, pubKey := btcec.PrivKeyFromBytes(btcec.S256(), privKeyBytes)
-	pubKeyHash := ltcutil.Hash160(pubKey.SerializeCompressed())
-	addr, err := ltcutil.NewAddressPubKeyHash(pubKeyHash,
+	pubKeyHash := ltfnutil.Hash160(pubKey.SerializeCompressed())
+	addr, err := ltfnutil.NewAddressPubKeyHash(pubKeyHash,
 		&chaincfg.MainNetParams)
 	if err != nil {
 		fmt.Println(err)
@@ -129,7 +129,7 @@ func ExampleSignTxOutput() {
 	redeemTx.AddTxOut(txOut)
 
 	// Sign the redeeming transaction.
-	lookupKey := func(a ltcutil.Address) (*btcec.PrivateKey, bool, error) {
+	lookupKey := func(a ltfnutil.Address) (*btcec.PrivateKey, bool, error) {
 		// Ordinarily this function would involve looking up the private
 		// key for the provided address, but since the only thing being
 		// signed in this example uses the address associated with the

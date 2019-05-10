@@ -17,7 +17,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/litecoinfinance/ltcd/btcec"
+	"github.com/litecoinfinance/ltfnd/btcec"
 )
 
 func main() {

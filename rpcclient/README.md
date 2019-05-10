@@ -1,13 +1,13 @@
 rpcclient
 =========
 
-[![Build Status](http://img.shields.io/travis/litecoinfinance/ltcd.svg)](https://travis-ci.org/litecoinfinance/ltcd)
+[![Build Status](http://img.shields.io/travis/litecoinfinance/ltfnd.svg)](https://travis-ci.org/litecoinfinance/ltfnd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/litecoinfinance/ltcd/rpcclient)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/litecoinfinance/ltfnd/rpcclient)
 
 rpcclient implements a Websocket-enabled Bitcoin JSON-RPC client package written
 in [Go](http://golang.org/).  It provides a robust and easy to use client for
-interfacing with a Bitcoin RPC server that uses a ltcd/bitcoin core compatible
+interfacing with a Bitcoin RPC server that uses a ltfnd/bitcoin core compatible
 Bitcoin JSON-RPC API.
 
 ## Status
@@ -18,22 +18,22 @@ implement and the API is not stable yet.
 
 ## Documentation
 
-* [API Reference](http://godoc.org/github.com/litecoinfinance/ltcd/rpcclient)
-* [btcd Websockets Example](https://github.com/litecoinfinance/ltcd/tree/master/rpcclient/examples/ltcdwebsockets)
+* [API Reference](http://godoc.org/github.com/litecoinfinance/ltfnd/rpcclient)
+* [btcd Websockets Example](https://github.com/litecoinfinance/ltfnd/tree/master/rpcclient/examples/ltfndwebsockets)
   Connects to a btcd RPC server using TLS-secured websockets, registers for
   block connected and block disconnected notifications, and gets the current
   block count
-* [btcwallet Websockets Example](https://github.com/litecoinfinance/ltcd/tree/master/rpcclient/examples/btcwalletwebsockets)
+* [btcwallet Websockets Example](https://github.com/litecoinfinance/ltfnd/tree/master/rpcclient/examples/btcwalletwebsockets)
   Connects to a btcwallet RPC server using TLS-secured websockets, registers for
   notifications about changes to account balances, and gets a list of unspent
   transaction outputs (utxos) the wallet can sign
-* [Bitcoin Core HTTP POST Example](https://github.com/litecoinfinance/ltcd/tree/master/rpcclient/examples/bitcoincorehttp)
+* [Bitcoin Core HTTP POST Example](https://github.com/litecoinfinance/ltfnd/tree/master/rpcclient/examples/bitcoincorehttp)
   Connects to a bitcoin core RPC server using HTTP POST mode with TLS disabled
   and gets the current block count
 
 ## Major Features
 
-* Supports Websockets (ltcd/btcwallet) and HTTP POST mode (bitcoin core)
+* Supports Websockets (ltfnd/btcwallet) and HTTP POST mode (bitcoin core)
 * Provides callback and registration functions for btcd/btcwallet notifications
 * Supports btcd extensions
 * Translates to and from higher-level and easier to use Go types
@@ -47,7 +47,7 @@ implement and the API is not stable yet.
 ## Installation
 
 ```bash
-$ go get -u github.com/litecoinfinance/ltcd/rpcclient
+$ go get -u github.com/litecoinfinance/ltfnd/rpcclient
 ```
 
 ## License

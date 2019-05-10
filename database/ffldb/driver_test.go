@@ -12,10 +12,10 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/chaincfg"
-	"github.com/litecoinfinance/ltcd/database"
-	"github.com/litecoinfinance/ltcd/database/ffldb"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/database"
+	"github.com/litecoinfinance/ltfnd/database/ffldb"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 // dbType is the database type name for this driver.
@@ -171,7 +171,7 @@ func TestPersistence(t *testing.T) {
 		"b1key2": "foo2",
 		"b1key3": "foo3",
 	}
-	genesisBlock := ltcutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
+	genesisBlock := ltfnutil.NewBlock(chaincfg.MainNetParams.GenesisBlock)
 	genesisHash := chaincfg.MainNetParams.GenesisHash
 	err = db.Update(func(tx database.Tx) error {
 		metadataBucket := tx.Metadata()

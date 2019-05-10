@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/database"
-	_ "github.com/litecoinfinance/ltcd/database/ffldb"
+	"github.com/litecoinfinance/ltfnd/database"
+	_ "github.com/litecoinfinance/ltfnd/database/ffldb"
 )
 
 var (

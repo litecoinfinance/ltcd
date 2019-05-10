@@ -1,16 +1,16 @@
 wire
 ====
 
-[![Build Status](http://img.shields.io/travis/litecoinfinance/ltcd.svg)](https://travis-ci.org/litecoinfinance/ltcd)
+[![Build Status](http://img.shields.io/travis/litecoinfinance/ltfnd.svg)](https://travis-ci.org/litecoinfinance/ltfnd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/litecoinfinance/ltcd/wire)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/litecoinfinance/ltfnd/wire)
 =======
 
 Package wire implements the bitcoin wire protocol.  A comprehensive suite of
 tests with 100% test coverage is provided to ensure proper functionality.
 
 There is an associated blog post about the release of this package
-[here](https://blog.conformal.com/btcwire-the-bitcoin-wire-protocol-package-from-ltcd/).
+[here](https://blog.conformal.com/btcwire-the-bitcoin-wire-protocol-package-from-ltfnd/).
 
 This package has intentionally been designed so it can be used as a standalone
 package for any projects needing to interface with bitcoin peers at the wire
@@ -19,7 +19,7 @@ protocol level.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/litecoinfinance/ltcd/wire
+$ go get -u github.com/litecoinfinance/ltfnd/wire
 ```
 
 ## Bitcoin Message Overview

@@ -1,7 +1,7 @@
 fullblocktests
 ==============
 
-[![Build Status](http://img.shields.io/travis/litecoinfinance/ltcd.svg)](https://travis-ci.org/litecoinfinance/ltcd) 
+[![Build Status](http://img.shields.io/travis/litecoinfinance/ltfnd.svg)](https://travis-ci.org/litecoinfinance/ltfnd) 
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)]
 
@@ -20,7 +20,7 @@ of blocks that exercise the consensus validation rules.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/litecoinfinance/ltcd/blockchain/fullblocktests
+$ go get -u github.com/litecoinfinance/ltfnd/blockchain/fullblocktests
 ```
 
 ## License

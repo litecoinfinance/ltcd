@@ -8,7 +8,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/database"
+	"github.com/litecoinfinance/ltfnd/database"
 )
 
 // TestErrorCodeStringer tests the stringized output for the ErrorCode type.

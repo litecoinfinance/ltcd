@@ -7,14 +7,14 @@ package indexers
 import (
 	"errors"
 
-	"github.com/litecoinfinance/ltcd/blockchain"
-	"github.com/litecoinfinance/ltcd/chaincfg"
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/database"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
-	"github.com/litecoinfinance/ltcutil/gcs"
-	"github.com/litecoinfinance/ltcutil/gcs/builder"
+	"github.com/litecoinfinance/ltfnd/blockchain"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/database"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
+	"github.com/litecoinfinance/ltfnutil/gcs"
+	"github.com/litecoinfinance/ltfnutil/gcs/builder"
 )
 
 const (
@@ -149,7 +149,7 @@ func (idx *CfIndex) Create(dbTx database.Tx) error {
 
 // storeFilter stores a given filter, and performs the steps needed to
 // generate the filter's header.
-func storeFilter(dbTx database.Tx, block *ltcutil.Block, f *gcs.Filter,
+func storeFilter(dbTx database.Tx, block *ltfnutil.Block, f *gcs.Filter,
 	filterType wire.FilterType) error {
 	if uint8(filterType) > maxFilterType {
 		return errors.New("unsupported filter type")
@@ -209,7 +209,7 @@ func storeFilter(dbTx database.Tx, block *ltcutil.Block, f *gcs.Filter,
 // ConnectBlock is invoked by the index manager when a new block has been
 // connected to the main chain. This indexer adds a hash-to-cf mapping for
 // every passed block. This is part of the Indexer interface.
-func (idx *CfIndex) ConnectBlock(dbTx database.Tx, block *ltcutil.Block,
+func (idx *CfIndex) ConnectBlock(dbTx database.Tx, block *ltfnutil.Block,
 	stxos []blockchain.SpentTxOut) error {
 
 	prevScripts := make([][]byte, len(stxos))
@@ -228,7 +228,7 @@ func (idx *CfIndex) ConnectBlock(dbTx database.Tx, block *ltcutil.Block,
 // DisconnectBlock is invoked by the index manager when a block has been
 // disconnected from the main chain.  This indexer removes the hash-to-cf
 // mapping for every passed block. This is part of the Indexer interface.
-func (idx *CfIndex) DisconnectBlock(dbTx database.Tx, block *ltcutil.Block,
+func (idx *CfIndex) DisconnectBlock(dbTx database.Tx, block *ltfnutil.Block,
 	_ []blockchain.SpentTxOut) error {
 
 	for _, key := range cfIndexKeys {

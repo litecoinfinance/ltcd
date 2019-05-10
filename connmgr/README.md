@@ -1,11 +1,11 @@
 connmgr
 =======
 
-[![Build Status](http://img.shields.io/travis/litecoinfinance/ltcd.svg)]
-(https://travis-ci.org/litecoinfinance/ltcd) [![ISC License]
+[![Build Status](http://img.shields.io/travis/litecoinfinance/ltfnd.svg)]
+(https://travis-ci.org/litecoinfinance/ltfnd) [![ISC License]
 (http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)]
-(http://godoc.org/github.com/litecoinfinance/ltcd/connmgr)
+(http://godoc.org/github.com/litecoinfinance/ltfnd/connmgr)
 
 Package connmgr implements a generic Bitcoin network connection manager.
 
@@ -31,7 +31,7 @@ In addition the connection manager provides the following utilities:
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/litecoinfinance/ltcd/connmgr
+$ go get -u github.com/litecoinfinance/ltfnd/connmgr
 ```
 
 ## License

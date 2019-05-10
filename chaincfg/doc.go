@@ -25,8 +25,8 @@
 //          "fmt"
 //          "log"
 //
-//          "github.com/litecoinfinance/ltcutil"
-//          "github.com/litecoinfinance/ltcd/chaincfg"
+//          "github.com/litecoinfinance/ltfnutil"
+//          "github.com/litecoinfinance/ltfnd/chaincfg"
 //  )
 //
 //  var testnet = flag.Bool("testnet", false, "operate on the testnet Bitcoin network")
@@ -46,7 +46,7 @@
 //
 //          // Create and print new payment address, specific to the active network.
 //          pubKeyHash := make([]byte, 20)
-//          addr, err := ltcutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
+//          addr, err := ltfnutil.NewAddressPubKeyHash(pubKeyHash, chainParams)
 //          if err != nil {
 //                  log.Fatal(err)
 //          }

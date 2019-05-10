@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 var (

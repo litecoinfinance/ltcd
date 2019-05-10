@@ -12,8 +12,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/addrmgr"
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/addrmgr"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 // naTest is used to describe a test to be performed against the NetAddressKey

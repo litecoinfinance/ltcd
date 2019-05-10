@@ -10,7 +10,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 // testNoncePrng provides a deterministic prng for the nonce in generated fake

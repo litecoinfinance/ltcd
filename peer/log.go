@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/txscript"
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/txscript"
+	"github.com/litecoinfinance/ltfnd/wire"
 	"github.com/btcsuite/btclog"
 )
 

@@ -9,7 +9,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/btcjson"
+	"github.com/litecoinfinance/ltfnd/btcjson"
 )
 
 // TestUsageFlagStringer tests the stringized output for the UsageFlag type.

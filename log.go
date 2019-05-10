@@ -10,17 +10,17 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/litecoinfinance/ltcd/addrmgr"
-	"github.com/litecoinfinance/ltcd/blockchain"
-	"github.com/litecoinfinance/ltcd/blockchain/indexers"
-	"github.com/litecoinfinance/ltcd/connmgr"
-	"github.com/litecoinfinance/ltcd/database"
-	"github.com/litecoinfinance/ltcd/mempool"
-	"github.com/litecoinfinance/ltcd/mining"
-	"github.com/litecoinfinance/ltcd/mining/cpuminer"
-	"github.com/litecoinfinance/ltcd/netsync"
-	"github.com/litecoinfinance/ltcd/peer"
-	"github.com/litecoinfinance/ltcd/txscript"
+	"github.com/litecoinfinance/ltfnd/addrmgr"
+	"github.com/litecoinfinance/ltfnd/blockchain"
+	"github.com/litecoinfinance/ltfnd/blockchain/indexers"
+	"github.com/litecoinfinance/ltfnd/connmgr"
+	"github.com/litecoinfinance/ltfnd/database"
+	"github.com/litecoinfinance/ltfnd/mempool"
+	"github.com/litecoinfinance/ltfnd/mining"
+	"github.com/litecoinfinance/ltfnd/mining/cpuminer"
+	"github.com/litecoinfinance/ltfnd/netsync"
+	"github.com/litecoinfinance/ltfnd/peer"
+	"github.com/litecoinfinance/ltfnd/txscript"
 
 	"github.com/btcsuite/btclog"
 	"github.com/jrick/logrotate/rotator"
@@ -58,7 +58,7 @@ var (
 	amgrLog = backendLog.Logger("AMGR")
 	cmgrLog = backendLog.Logger("CMGR")
 	bcdbLog = backendLog.Logger("BCDB")
-	ltcdLog = backendLog.Logger("BTCD")
+	ltfndLog = backendLog.Logger("BTCD")
 	chanLog = backendLog.Logger("CHAN")
 	discLog = backendLog.Logger("DISC")
 	indxLog = backendLog.Logger("INDX")
@@ -92,7 +92,7 @@ var subsystemLoggers = map[string]btclog.Logger{
 	"AMGR": amgrLog,
 	"CMGR": cmgrLog,
 	"BCDB": bcdbLog,
-	"LTCD": ltcdLog,
+	"LTFND": ltfndLog,
 	"CHAN": chanLog,
 	"DISC": discLog,
 	"INDX": indxLog,

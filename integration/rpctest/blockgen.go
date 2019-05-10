@@ -11,12 +11,12 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/blockchain"
-	"github.com/litecoinfinance/ltcd/chaincfg"
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/txscript"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/blockchain"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/txscript"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 // solveBlock attempts to find a nonce which makes the passed block header hash
@@ -96,8 +96,8 @@ func standardCoinbaseScript(nextBlockHeight int32, extraNonce uint64) ([]byte, e
 // createCoinbaseTx returns a coinbase transaction paying an appropriate
 // subsidy based on the passed block height to the provided address.
 func createCoinbaseTx(coinbaseScript []byte, nextBlockHeight int32,
-	addr ltcutil.Address, mineTo []wire.TxOut,
-	net *chaincfg.Params) (*ltcutil.Tx, error) {
+	addr ltfnutil.Address, mineTo []wire.TxOut,
+	net *chaincfg.Params) (*ltfnutil.Tx, error) {
 
 	// Create the script to pay to the provided payment address.
 	pkScript, err := txscript.PayToAddrScript(addr)
@@ -124,7 +124,7 @@ func createCoinbaseTx(coinbaseScript []byte, nextBlockHeight int32,
 			tx.AddTxOut(&mineTo[i])
 		}
 	}
-	return ltcutil.NewTx(tx), nil
+	return ltfnutil.NewTx(tx), nil
 }
 
 // CreateBlock creates a new block building from the previous block with a
@@ -132,9 +132,9 @@ func createCoinbaseTx(coinbaseScript []byte, nextBlockHeight int32,
 // initialized), then the timestamp of the previous block will be used plus 1
 // second is used. Passing nil for the previous block results in a block that
 // builds off of the genesis block for the specified chain.
-func CreateBlock(prevBlock *ltcutil.Block, inclusionTxs []*ltcutil.Tx,
-	blockVersion int32, blockTime time.Time, miningAddr ltcutil.Address,
-	mineTo []wire.TxOut, net *chaincfg.Params) (*ltcutil.Block, error) {
+func CreateBlock(prevBlock *ltfnutil.Block, inclusionTxs []*ltfnutil.Tx,
+	blockVersion int32, blockTime time.Time, miningAddr ltfnutil.Address,
+	mineTo []wire.TxOut, net *chaincfg.Params) (*ltfnutil.Block, error) {
 
 	var (
 		prevHash      *chainhash.Hash
@@ -177,7 +177,7 @@ func CreateBlock(prevBlock *ltcutil.Block, inclusionTxs []*ltcutil.Tx,
 	}
 
 	// Create a new block ready to be solved.
-	blockTxns := []*ltcutil.Tx{coinbaseTx}
+	blockTxns := []*ltfnutil.Tx{coinbaseTx}
 	if inclusionTxs != nil {
 		blockTxns = append(blockTxns, inclusionTxs...)
 	}
@@ -201,7 +201,7 @@ func CreateBlock(prevBlock *ltcutil.Block, inclusionTxs []*ltcutil.Tx,
 		return nil, errors.New("Unable to solve block")
 	}
 
-	utilBlock := ltcutil.NewBlock(&block)
+	utilBlock := ltfnutil.NewBlock(&block)
 	utilBlock.SetHeight(blockHeight)
 	return utilBlock, nil
 }

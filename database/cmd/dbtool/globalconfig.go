@@ -10,28 +10,28 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/litecoinfinance/ltcd/chaincfg"
-	"github.com/litecoinfinance/ltcd/database"
-	_ "github.com/litecoinfinance/ltcd/database/ffldb"
-	"github.com/litecoinfinance/ltcd/wire"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/database"
+	_ "github.com/litecoinfinance/ltfnd/database/ffldb"
+	"github.com/litecoinfinance/ltfnd/wire"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 var (
-	ltcdHomeDir     = ltcutil.AppDataDir("ltcd", false)
+	ltfndHomeDir     = ltfnutil.AppDataDir("ltfnd", false)
 	knownDbTypes    = database.SupportedDrivers()
 	activeNetParams = &chaincfg.MainNetParams
 
 	// Default global config.
 	cfg = &config{
-		DataDir: filepath.Join(ltcdHomeDir, "data"),
+		DataDir: filepath.Join(ltfndHomeDir, "data"),
 		DbType:  "ffldb",
 	}
 )
 
 // config defines the global configuration options.
 type config struct {
-	DataDir        string `short:"b" long:"datadir" description:"Location of the ltcd data directory"`
+	DataDir        string `short:"b" long:"datadir" description:"Location of the ltfnd data directory"`
 	DbType         string `long:"dbtype" description:"Database backend to use for the Block Chain"`
 	TestNet4       bool   `long:"testnet" description:"Use the test network"`
 	RegressionTest bool   `long:"regtest" description:"Use the regression test network"`
@@ -60,7 +60,7 @@ func validDbType(dbType string) bool {
 }
 
 // netName returns the name used when referring to a bitcoin network.  At the
-// time of writing, ltcd currently places blocks for testnet version 3 in the
+// time of writing, ltfnd currently places blocks for testnet version 3 in the
 // data and log directory "testnet", which does not match the Name field of the
 // chaincfg parameters.  This function can be used to override this directory name
 // as "testnet" when the passed active network matches wire.TestNet4.

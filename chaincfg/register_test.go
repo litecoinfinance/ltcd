@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/litecoinfinance/ltcd/chaincfg"
+	. "github.com/litecoinfinance/ltfnd/chaincfg"
 )
 
 // Define some of the required parameters for a user-registered

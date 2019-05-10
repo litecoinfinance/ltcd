@@ -1,15 +1,15 @@
 ffldb
 =====
 
-[![Build Status](https://travis-ci.org/litecoinfinance/ltcd.png?branch=master)](https://travis-ci.org/litecoinfinance/ltcd)
+[![Build Status](https://travis-ci.org/litecoinfinance/ltfnd.png?branch=master)](https://travis-ci.org/litecoinfinance/ltfnd)
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
-[![GoDoc](https://godoc.org/github.com/litecoinfinance/ltcd/database/ffldb?status.png)](http://godoc.org/github.com/litecoinfinance/ltcd/database/ffldb)
+[![GoDoc](https://godoc.org/github.com/litecoinfinance/ltfnd/database/ffldb?status.png)](http://godoc.org/github.com/litecoinfinance/ltfnd/database/ffldb)
 =======
 
 Package ffldb implements a driver for the database package that uses leveldb for
 the backing metadata and flat files for block storage.
 
-This driver is the recommended driver for use with ltcd.  It makes use leveldb
+This driver is the recommended driver for use with ltfnd.  It makes use leveldb
 for the metadata, flat files for block storage, and checksums in key areas to
 ensure data integrity.
 
@@ -38,16 +38,16 @@ if err != nil {
 =======
 ## Documentation
 
-[![GoDoc](https://godoc.org/github.com/litecoinfinance/ltcd/database/ffldb?status.png)]
-(http://godoc.org/github.com/litecoinfinance/ltcd/database/ffldb)
+[![GoDoc](https://godoc.org/github.com/litecoinfinance/ltfnd/database/ffldb?status.png)]
+(http://godoc.org/github.com/litecoinfinance/ltfnd/database/ffldb)
 
 Full `go doc` style documentation for the project can be viewed online without
 installing this package by using the GoDoc site here:
-http://godoc.org/github.com/litecoinfinance/ltcd/database/ffldb
+http://godoc.org/github.com/litecoinfinance/ltfnd/database/ffldb
 
 You can also view the documentation locally once the package is installed with
 the `godoc` tool by running `godoc -http=":6060"` and pointing your browser to
-http://localhost:6060/pkg/github.com/litecoinfinance/ltcd/database/ffldb
+http://localhost:6060/pkg/github.com/litecoinfinance/ltfnd/database/ffldb
 
 ## License
 

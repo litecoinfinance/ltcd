@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
 	"github.com/davecgh/go-spew/spew"
 )
 

@@ -14,8 +14,8 @@ import (
 	"strings"
 
 	flags "github.com/jessevdk/go-flags"
-	"github.com/litecoinfinance/ltcd/btcjson"
-	"github.com/litecoinfinance/ltcutil"
+	"github.com/litecoinfinance/ltfnd/btcjson"
+	"github.com/litecoinfinance/ltfnutil"
 )
 
 const (
@@ -26,13 +26,13 @@ const (
 )
 
 var (
-	ltcdHomeDir           = ltcutil.AppDataDir("ltcd", false)
-	ltcctlHomeDir         = ltcutil.AppDataDir("ltcctl", false)
-	ltcwalletHomeDir      = ltcutil.AppDataDir("ltcwallet", false)
-	defaultConfigFile     = filepath.Join(ltcctlHomeDir, "ltcctl.conf")
+	ltfndHomeDir           = ltfnutil.AppDataDir("ltfnd", false)
+	ltfnctlHomeDir         = ltfnutil.AppDataDir("ltfnctl", false)
+	ltfnwalletHomeDir      = ltfnutil.AppDataDir("ltfnwallet", false)
+	defaultConfigFile     = filepath.Join(ltfnctlHomeDir, "ltfnctl.conf")
 	defaultRPCServer      = "localhost"
-	defaultRPCCertFile    = filepath.Join(ltcdHomeDir, "rpc.cert")
-	defaultWalletCertFile = filepath.Join(ltcwalletHomeDir, "rpc.cert")
+	defaultRPCCertFile    = filepath.Join(ltfndHomeDir, "rpc.cert")
+	defaultWalletCertFile = filepath.Join(ltfnwalletHomeDir, "rpc.cert")
 )
 
 // listCommands categorizes and lists all of the usable commands along with
@@ -88,7 +88,7 @@ func listCommands() {
 	}
 }
 
-// config defines the configuration options for ltcctl.
+// config defines the configuration options for ltfnctl.
 //
 // See loadConfig for details on the configuration load process.
 type config struct {
@@ -146,7 +146,7 @@ func normalizeAddress(addr string, useTestNet4, useSimNet, useWallet bool) strin
 func cleanAndExpandPath(path string) string {
 	// Expand initial ~ to OS specific home directory.
 	if strings.HasPrefix(path, "~") {
-		homeDir := filepath.Dir(ltcctlHomeDir)
+		homeDir := filepath.Dir(ltfnctlHomeDir)
 		path = strings.Replace(path, "~", homeDir, 1)
 	}
 
@@ -214,9 +214,9 @@ func loadConfig() (*config, []string, error) {
 		// Use config file for RPC server to create default btcctl config
 		var serverConfigPath string
 		if preCfg.Wallet {
-			serverConfigPath = filepath.Join(ltcwalletHomeDir, "ltcwallet.conf")
+			serverConfigPath = filepath.Join(ltfnwalletHomeDir, "ltfnwallet.conf")
 		} else {
-			serverConfigPath = filepath.Join(ltcdHomeDir, "ltcd.conf")
+			serverConfigPath = filepath.Join(ltfndHomeDir, "ltfnd.conf")
 		}
 
 		err := createDefaultConfigFile(preCfg.ConfigFile, serverConfigPath)
@@ -280,8 +280,8 @@ func loadConfig() (*config, []string, error) {
 }
 
 // createDefaultConfig creates a basic config file at the given destination path.
-// For this it tries to read the config file for the RPC server (either ltcd or
-// ltcwallet), and extract the RPC user and password from it.
+// For this it tries to read the config file for the RPC server (either ltfnd or
+// ltfnwallet), and extract the RPC user and password from it.
 func createDefaultConfigFile(destinationPath, serverConfigPath string) error {
 	// Read the RPC server config
 	serverConfigFile, err := os.Open(serverConfigPath)

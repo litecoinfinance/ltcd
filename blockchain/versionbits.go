@@ -7,7 +7,7 @@ package blockchain
 import (
 	"math"
 
-	"github.com/litecoinfinance/ltcd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
 )
 
 const (

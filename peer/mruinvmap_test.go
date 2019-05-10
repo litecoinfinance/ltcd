@@ -9,8 +9,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 // TestMruInventoryMap ensures the MruInventoryMap behaves as expected including

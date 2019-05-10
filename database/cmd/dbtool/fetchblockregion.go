@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/database"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/database"
 )
 
 // blockRegionCmd defines the configuration options for the fetchblockregion

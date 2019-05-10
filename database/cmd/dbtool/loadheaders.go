@@ -7,8 +7,8 @@ package main
 import (
 	"time"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
-	"github.com/litecoinfinance/ltcd/database"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/database"
 )
 
 // headersCmd defines the configuration options for the loadheaders command.

@@ -10,9 +10,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/litecoinfinance/ltcd/chaincfg"
-	"github.com/litecoinfinance/ltcd/peer"
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/chaincfg"
+	"github.com/litecoinfinance/ltfnd/peer"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 // mockRemotePeer creates a basic inbound peer listening on the simnet port for

@@ -8,8 +8,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/addrmgr"
-	"github.com/litecoinfinance/ltcd/wire"
+	"github.com/litecoinfinance/ltfnd/addrmgr"
+	"github.com/litecoinfinance/ltfnd/wire"
 )
 
 // TestIPTypes ensures the various functions which determine the type of an IP

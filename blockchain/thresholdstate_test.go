@@ -7,7 +7,7 @@ package blockchain
 import (
 	"testing"
 
-	"github.com/litecoinfinance/ltcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/ltfnd/chaincfg/chainhash"
 )
 
 // TestThresholdStateStringer tests the stringized output for the

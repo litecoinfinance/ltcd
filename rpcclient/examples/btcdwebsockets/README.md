@@ -1,7 +1,7 @@
-ltcd Websockets Example
+ltfnd Websockets Example
 =======================
 
-This example shows how to use the rpcclient package to connect to a ltcd RPC
+This example shows how to use the rpcclient package to connect to a ltfnd RPC
 server using TLS-secured websockets, register for block connected and block
 disconnected notifications, and get the current block count.
 
@@ -13,7 +13,7 @@ demonstrate clean shutdown.
 The first step is to use `go get` to download and install the rpcclient package:
 
 ```bash
-$ go get github.com/litecoinfinance/ltcd/rpcclient
+$ go get github.com/litecoinfinance/ltfnd/rpcclient
 ```
 
 Next, modify the `main.go` source to specify the correct RPC username and
@@ -27,7 +27,7 @@ password for the RPC server:
 Finally, navigate to the example's directory and run it with:
 
 ```bash
-$ cd $GOPATH/src/github.com/litecoinfinance/ltcd/rpcclient/examples/ltcdwebsockets
+$ cd $GOPATH/src/github.com/litecoinfinance/ltfnd/rpcclient/examples/ltfndwebsockets
 $ go run *.go
 ```
 
