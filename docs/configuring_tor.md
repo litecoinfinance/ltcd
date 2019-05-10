@@ -97,7 +97,7 @@ address.
 
 ```text
 HiddenServiceDir /var/tor/ltcd
-HiddenServicePort 9333 127.0.0.1:9333
+HiddenServicePort 39328 127.0.0.1:39328
 ```
 
 Once Tor is configured to provide the hidden service and you have obtained your

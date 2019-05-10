@@ -11,5 +11,5 @@ configurations.
 
 |Name|Port|
 |----|----|
-|Default Bitcoin peer-to-peer port|TCP 9333|
-|Default RPC port|TCP 9334|
+|Default Bitcoin peer-to-peer port|TCP 39328|
+|Default RPC port|TCP 39329|
