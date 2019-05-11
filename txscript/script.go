@@ -687,6 +687,8 @@ func calcSignatureHash(script []parsedOpcode, hashType SigHashType, tx *wire.Msg
 	case SigHashOld:
 		fallthrough
 	case SigHashAll:
+		fallthrough
+	case SigHashForkID:
 		// Nothing special here.
 	}
 	if hashType&SigHashAnyOneCanPay != 0 {
