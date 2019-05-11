@@ -520,7 +520,7 @@ func (m *memWallet) CreateTransaction(outputs []*wire.TxOut,
 		}
 
 		sigScript, err := txscript.SignatureScript(tx, i, utxo.pkScript,
-			txscript.SigHashAll, privKey, true)
+			txscript.SigHashAll|txscript.SigHashForkID, privKey, true)
 		if err != nil {
 			return nil, err
 		}

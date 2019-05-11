@@ -23,16 +23,23 @@ type SigHashType string
 const (
 	// SigHashAll indicates ALL of the outputs should be signed.
 	SigHashAll SigHashType = "ALL"
-
+    
+	SigHashAllSigHashForkID SigHashType = "ALL|FORKID"
+	
 	// SigHashNone indicates NONE of the outputs should be signed.  This
 	// can be thought of as specifying the signer does not care where the
 	// bitcoins go.
 	SigHashNone SigHashType = "NONE"
 
+	SigHashNoneSigHashForkID SigHashType = "NONE|FORKID"
+	
 	// SigHashSingle indicates that a SINGLE output should be signed.  This
 	// can be thought of specifying the signer only cares about where ONE of
 	// the outputs goes, but not any of the others.
 	SigHashSingle SigHashType = "SINGLE"
+
+	SigHashSingleSigHashForkID SigHashType = "SINGLE|FORKID"
+	
 
 	// SigHashAllAnyoneCanPay indicates that signer does not care where the
 	// other inputs to the transaction come from, so it allows other people
@@ -40,17 +47,23 @@ const (
 	// for outputs.
 	SigHashAllAnyoneCanPay SigHashType = "ALL|ANYONECANPAY"
 
+	SigHashAllSigHashForkIDAnyoneCanPay SigHashType = "ALL|FORKID|ANYONECANPAY"
+
 	// SigHashNoneAnyoneCanPay indicates that signer does not care where the
 	// other inputs to the transaction come from, so it allows other people
 	// to add inputs.  In addition, it uses the SigHashNone signing method
 	// for outputs.
 	SigHashNoneAnyoneCanPay SigHashType = "NONE|ANYONECANPAY"
 
+	SigHashNoneSigHashForkIDAnyoneCanPay SigHashType = "NONE|FORKID|ANYONECANPAY"
+
 	// SigHashSingleAnyoneCanPay indicates that signer does not care where
 	// the other inputs to the transaction come from, so it allows other
 	// people to add inputs.  In addition, it uses the SigHashSingle signing
 	// method for outputs.
 	SigHashSingleAnyoneCanPay SigHashType = "SINGLE|ANYONECANPAY"
+	
+	SigHashSingleSigHashForkIDAnyoneCanPay SigHashType = "SINGLE|FORKID|ANYONECANPAY"
 )
 
 // String returns the SighHashType in human-readable form.
